@@ -1,4 +1,4 @@
-.cards__section{
+.cards{
   padding: 20px 0 4%;
   max-width: 1280px;
   margin: 0 auto;
@@ -20,7 +20,7 @@
     grid-template-columns: repeat(auto-fit, 288px);
     gap: 20px;
   }
-  .cards__section{
+  .cards{
     max-width: 288px;
   }
 }
