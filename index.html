@@ -79,6 +79,49 @@
   <footer class="footer">
     <p class="footer__title">2025 &copy; Spots</p>
   </footer>
+  <div class="modal">
+    <div class="modal__container">
+      <h2 class="modal__title">Edit profile</h2>
+      <button type="button" class="modal__close-btn">
+        <svg class="modal__close-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+      </button>
+      <form class="modal__form">
+        <label for="profile-name-input" class="modal__label">
+          Name
+          <input id="profile-name-input" type="text" class="modal__input" placeholder="Type your name">
+        </label>
+        <label for="profile-description-input" class="modal__label">
+          Description
+          <input id="profile-description-input" type="text" class="modal__input" placeholder="Describe yourself">
+        </label>
+        <button type="submit" class="modal__submit-btn"> Save </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal modal_is-opened">
+    <div class="modal__container">
+      <h2 class="modal__title">New post</h2>
+      <button type="button" class="modal__close-btn">
+        <svg class="modal__close-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+      </button>
+      <form class="modal__form">
+        <label for="card-image-input" class="modal__label">
+          Image link
+          <input id="card-image-input" type="url" class="modal__input" placeholder="Paste a link to the picture">
+        </label>
+        <label for="caption-image-input" class="modal__label">
+          Caption
+          <input id="caption-image-input" type="text" class="modal__input" placeholder="Type your caption">
+        </label>
+        <button type="submit" class="modal__submit-btn"> Save </button>
+      </form>
+    </div>
+  </div>
 </div>
 </body>
 </html>
