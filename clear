@@ -1,0 +1,612 @@
+warning: in the working copy of 'blocks/card.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/cards.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/content.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/footer.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/header.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/modal.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/page.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blocks/profile.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/index.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/blocks/card.css b/blocks/card.css[m
+[1mindex 42f7c5a..e2d9e5f 100644[m
+[1m--- a/blocks/card.css[m
+[1m+++ b/blocks/card.css[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-.card__image{[m
+[32m+[m[32m.card__image {[m
+   height: 413px;[m
+   width: 100%;[m
+   object-fit: cover;[m
+[36m@@ -7,7 +7,7 @@[m
+   margin-bottom: 12px;[m
+ }[m
+ [m
+[31m-.card__like-btn{[m
+[32m+[m[32m.card__like-btn {[m
+   background-image: url(../images/heart.svg);[m
+   width: 23px;[m
+   height: 20px;[m
+[36m@@ -18,23 +18,21 @@[m
+   transition: all 0.3s ease;[m
+ }[m
+ [m
+[31m-.card__like-btn:hover{[m
+[32m+[m[32m.card__like-btn:hover {[m
+   opacity: 100%;[m
+ }[m
+ [m
+[31m-.card__content{[m
+[32m+[m[32m.card__content {[m
+   display: flex;[m
+   align-items: center;[m
+   justify-content: space-between;[m
+ }[m
+ [m
+[31m-[m
+[31m-.card__content:nth-child(4){[m
+[32m+[m[32m.card__content:nth-child(4) {[m
+   text-align: start;[m
+ }[m
+ [m
+[31m-[m
+[31m-.card__title{[m
+[32m+[m[32m.card__title {[m
+   margin: 0;[m
+   text-overflow: ellipsis;[m
+   white-space: nowrap;[m
+[36m@@ -43,8 +41,8 @@[m
+   font-weight: 500;[m
+ }[m
+ [m
+[31m-@media screen and (max-width:627px) {[m
+[31m-.card__image{[m
+[31m-height: 288px;[m
+[32m+[m[32m@media screen and (max-width: 627px) {[m
+[32m+[m[32m  .card__image {[m
+[32m+[m[32m    height: 288px;[m
+[32m+[m[32m  }[m
+ }[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/blocks/cards.css b/blocks/cards.css[m
+[1mindex 517ce3b..530cf84 100644[m
+[1m--- a/blocks/cards.css[m
+[1m+++ b/blocks/cards.css[m
+[36m@@ -1,11 +1,11 @@[m
+[31m-.cards{[m
+[32m+[m[32m.cards {[m
+   padding: 20px 0 4%;[m
+   max-width: 1280px;[m
+   margin: 0 auto;[m
+   border-bottom: 1px solid rgba(33, 33, 33, 0.4);[m
+ }[m
+ [m
+[31m-.cards__list{[m
+[32m+[m[32m.cards__list {[m
+   list-style-type: none;[m
+   margin: 0;[m
+   padding: 0;[m
+[36m@@ -15,12 +15,12 @@[m
+   justify-content: center;[m
+ }[m
+ [m
+[31m-@media screen and (max-width:627px) {[m
+[31m-  .cards__list{[m
+[32m+[m[32m@media screen and (max-width: 627px) {[m
+[32m+[m[32m  .cards__list {[m
+     grid-template-columns: repeat(auto-fit, 288px);[m
+     gap: 20px;[m
+   }[m
+[31m-  .cards{[m
+[32m+[m[32m  .cards {[m
+     max-width: 288px;[m
+   }[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[1mdiff --git a/blocks/content.css b/blocks/content.css[m
+[1mindex caef30d..e2eed06 100644[m
+[1m--- a/blocks/content.css[m
+[1m+++ b/blocks/content.css[m
+[36m@@ -1,3 +1,3 @@[m
+[31m-.content{[m
+[32m+[m[32m.content {[m
+   padding: 0 20px;[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[1mdiff --git a/blocks/footer.css b/blocks/footer.css[m
+[1mindex 5dc36fe..606a1f4 100644[m
+[1m--- a/blocks/footer.css[m
+[1m+++ b/blocks/footer.css[m
+[36m@@ -1,13 +1,12 @@[m
+[31m-.footer{[m
+[32m+[m[32m.footer {[m
+   display: flex;[m
+   justify-content: center;[m
+ }[m
+ [m
+[31m-[m
+[31m-.footer__title{[m
+[32m+[m[32m.footer__title {[m
+   color: rgba(33, 33, 33, 0.7);[m
+   padding: 60px 0 60px;[m
+   margin: 0;[m
+   font-size: 16px;[m
+   font-weight: 400;[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[1mdiff --git a/blocks/header.css b/blocks/header.css[m
+[1mindex 40ad1ef..9710bae 100644[m
+[1m--- a/blocks/header.css[m
+[1m+++ b/blocks/header.css[m
+[36m@@ -1,12 +1,11 @@[m
+[31m-.header{[m
+[32m+[m[32m.header {[m
+   background-color: #fff;[m
+   padding: 10px 0;[m
+   display: flex;[m
+   justify-content: center;[m
+ }[m
+ [m
+[31m-.header__logo{[m
+[32m+[m[32m.header__logo {[m
+   width: 94px;[m
+   height: 26px;[m
+ }[m
+[31m-[m
+[1mdiff --git a/blocks/modal.css b/blocks/modal.css[m
+[1mindex 512386e..33ca9f4 100644[m
+[1m--- a/blocks/modal.css[m
+[1m+++ b/blocks/modal.css[m
+[36m@@ -1,6 +1,6 @@[m
+ .modal {[m
+   visibility: hidden;[m
+[31m-  background-color: rgba(0,0,0,.5);[m
+[32m+[m[32m  background-color: rgba(0, 0, 0, 0.5);[m
+   position: fixed;[m
+   top: 0;[m
+   right: 0;[m
+[36m@@ -12,20 +12,20 @@[m
+   padding: 0 15px;[m
+ }[m
+ [m
+[31m-.modal_is-opened{[m
+[32m+[m[32m.modal_is-opened {[m
+   visibility: visible;[m
+ }[m
+ [m
+[31m-.modal__container{[m
+[32m+[m[32m.modal__container {[m
+   max-width: 730px;[m
+   width: 100%;[m
+   border-radius: 8px;[m
+[31m-  background-color: rgb(255,255,255);[m
+[32m+[m[32m  background-color: rgb(255, 255, 255);[m
+   padding: 32px 50px;[m
+   position: relative;[m
+ }[m
+ [m
+[31m-.modal__close-btn{[m
+[32m+[m[32m.modal__close-btn {[m
+   top: 28px;[m
+   right: 50px;[m
+   width: 40px;[m
+[36m@@ -38,14 +38,13 @@[m
+   position: absolute;[m
+ }[m
+ [m
+[31m-[m
+ .modal__title {[m
+   margin: 0 0 32px;[m
+   font-weight: 500;[m
+   font-size: 32px;[m
+ }[m
+ [m
+[31m-.modal__input::placeholder{[m
+[32m+[m[32m.modal__input::placeholder {[m
+   font-size: 16px;[m
+ }[m
+ [m
+[36m@@ -62,14 +61,12 @@[m
+   opacity: 0.6;[m
+ }[m
+ [m
+[31m-[m
+[31m-.modal__form{[m
+[32m+[m[32m.modal__form {[m
+   display: flex;[m
+   flex-direction: column;[m
+[31m-[m
+ }[m
+ [m
+[31m-.modal__input{[m
+[32m+[m[32m.modal__input {[m
+   display: block;[m
+   margin: 8px 0 0;[m
+   width: 100%;[m
+[36m@@ -80,14 +77,14 @@[m
+   border: 1px solid rgba(33, 33, 33, 0.4);[m
+ }[m
+ [m
+[31m-.modal__label{[m
+[32m+[m[32m.modal__label {[m
+   margin: 0 0 32px;[m
+   font-weight: 500;[m
+   font-size: 16px;[m
+   color: rgba(33, 33, 33, 0.7);[m
+ }[m
+ [m
+[31m-.modal__submit-btn{[m
+[32m+[m[32m.modal__submit-btn {[m
+   max-width: 156px;[m
+   width: 100%;[m
+   padding: 18px 0;[m
+[36m@@ -99,29 +96,27 @@[m
+   transition: background-color 0.4s ease, color 0.4s ease;[m
+ }[m
+ [m
+[31m-.modal__submit-btn:hover{[m
+[32m+[m[32m.modal__submit-btn:hover {[m
+   background-color: rgba(33, 33, 33, 0.8);[m
+ }[m
+ [m
+[32m+[m[32m@media screen and (max-width: 370px) {[m
+[32m+[m[32m  .modal__submit-btn {[m
+[32m+[m[32m    font-size: 16px;[m
+[32m+[m[32m    max-width: none;[m
+[32m+[m[32m  }[m
+ [m
+[31m-@media screen and (max-width:370px) {[m
+[31m-  .modal__submit-btn{[m
+[31m-  font-size: 16px;[m
+[31m-  max-width: none;[m
+[31m-}[m
+[31m-[m
+[31m-.modal__title {[m
+[31m-  font-size: 20px;[m
+[31m-  padding: 10px 0 0;[m
+[31m-}[m
+[31m-[m
+[31m-.modal__container{[m
+[31m-  padding: 12px;[m
+[31m-}[m
+[32m+[m[32m  .modal__title {[m
+[32m+[m[32m    font-size: 20px;[m
+[32m+[m[32m    padding: 10px 0 0;[m
+[32m+[m[32m  }[m
+ [m
+[31m-.modal__close-btn{[m
+[31m-  top: 12px;[m
+[31m-  right: 12px;[m
+[32m+[m[32m  .modal__container {[m
+[32m+[m[32m    padding: 12px;[m
+[32m+[m[32m  }[m
+ [m
+[32m+[m[32m  .modal__close-btn {[m
+[32m+[m[32m    top: 12px;[m
+[32m+[m[32m    right: 12px;[m
+[32m+[m[32m  }[m
+ }[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/blocks/page.css b/blocks/page.css[m
+[1mindex 931e9a1..99a8531 100644[m
+[1m--- a/blocks/page.css[m
+[1m+++ b/blocks/page.css[m
+[36m@@ -1,9 +1,9 @@[m
+[31m-.page{[m
+[31m-  background-color: #FCF5E5;[m
+[31m-  font-family: 'Poppins', Arial, Helvetica, sans-serif;[m
+[32m+[m[32m.page {[m
+[32m+[m[32m  background-color: #fcf5e5;[m
+[32m+[m[32m  font-family: "Poppins", Arial, Helvetica, sans-serif;[m
+   min-height: 100vh;[m
+ }[m
+ [m
+[31m-.page__section{[m
+[32m+[m[32m.page__section {[m
+   margin: 0 auto;[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[1mdiff --git a/blocks/profile.css b/blocks/profile.css[m
+[1mindex 8502f39..08524b8 100644[m
+[1m--- a/blocks/profile.css[m
+[1m+++ b/blocks/profile.css[m
+[36m@@ -1,22 +1,22 @@[m
+[31m-.profile{[m
+[32m+[m[32m.profile {[m
+   display: flex;[m
+   padding: 34px 0 20px;[m
+   border-bottom: 1px solid rgba(33, 33, 33, 0.4);[m
+   max-width: 1280px;[m
+ }[m
+ [m
+[31m-.profile__add-btn{[m
+[32m+[m[32m.profile__add-btn {[m
+   margin-left: auto;[m
+ }[m
+ [m
+[31m-.profile__avatar{[m
+[32m+[m[32m.profile__avatar {[m
+   margin-right: 20px;[m
+   height: 190px;[m
+   width: 190px;[m
+[31m-  border-radius: 8px  ;[m
+[32m+[m[32m  border-radius: 8px;[m
+ }[m
+ [m
+[31m-.profile__name{[m
+[32m+[m[32m.profile__name {[m
+   margin: 0 0 12px;[m
+   font-weight: 500;[m
+   font-size: 32px;[m
+[36m@@ -29,7 +29,7 @@[m
+   max-width: 420px;[m
+ }[m
+ [m
+[31m-.profile__description{[m
+[32m+[m[32m.profile__description {[m
+   margin: 0;[m
+   display: -webkit-box;[m
+   overflow: hidden;[m
+[36m@@ -41,12 +41,12 @@[m
+   color: rgba(33, 33, 33, 0.7);[m
+ }[m
+ [m
+[31m-.profile__column{[m
+[32m+[m[32m.profile__column {[m
+   display: flex;[m
+   flex-direction: column;[m
+ }[m
+ [m
+[31m-.profile__edit-btn{[m
+[32m+[m[32m.profile__edit-btn {[m
+   margin-top: auto;[m
+   border: none;[m
+   color: rgba(33, 33, 33, 0.7);[m
+[36m@@ -59,10 +59,10 @@[m
+ }[m
+ [m
+ .profile__edit-btn:hover {[m
+[31m-  color: rgba(0,0,0);[m
+[32m+[m[32m  color: rgba(0, 0, 0);[m
+ }[m
+ [m
+[31m-.profile__edit-btn-icon{[m
+[32m+[m[32m.profile__edit-btn-icon {[m
+   opacity: 0.7;[m
+   transition: all 0.3s ease;[m
+ }[m
+[36m@@ -71,10 +71,9 @@[m
+   opacity: 1;[m
+ }[m
+ [m
+[31m-[m
+[31m-.profile__add-btn{[m
+[32m+[m[32m.profile__add-btn {[m
+   background-color: #212121;[m
+[31m-  color: #FCF5E5;[m
+[32m+[m[32m  color: #fcf5e5;[m
+   border-radius: 8px;[m
+   min-width: 149px;[m
+   padding: 18px 24px;[m
+[36m@@ -84,18 +83,17 @@[m
+   cursor: pointer;[m
+ }[m
+ [m
+[31m-.profile__add-btn:hover{[m
+[32m+[m[32m.profile__add-btn:hover {[m
+   background-color: rgba(33, 33, 33, 0.8);[m
+ }[m
+ [m
+[31m-[m
+[31m-.profile__add-btn-icon{[m
+[32m+[m[32m.profile__add-btn-icon {[m
+   width: 12px;[m
+   height: 12px;[m
+ }[m
+ [m
+[31m-@media screen and (max-width:627px) {[m
+[31m-  .profile{[m
+[32m+[m[32m@media screen and (max-width: 627px) {[m
+[32m+[m[32m  .profile {[m
+     flex-direction: column;[m
+     max-width: 288px;[m
+     align-items: center;[m
+[36m@@ -103,28 +101,27 @@[m
+     padding-top: 20px;[m
+   }[m
+ [m
+[31m-  .profile__avatar{[m
+[32m+[m[32m  .profile__avatar {[m
+     margin: 0 0 12px;[m
+     width: 80px;[m
+     height: 80px;[m
+   }[m
+ [m
+[31m-  .profile__name{[m
+[32m+[m[32m  .profile__name {[m
+     font-size: 20px;[m
+     margin: 0 0 6px;[m
+   }[m
+ [m
+[31m-  .profile__description{[m
+[31m-  margin: 0 0 32px;[m
+[32m+[m[32m  .profile__description {[m
+[32m+[m[32m    margin: 0 0 32px;[m
+   }[m
+ [m
+[31m-  .profile__edit-btn{[m
+[32m+[m[32m  .profile__edit-btn {[m
+     margin: 0 auto 20px;[m
+   }[m
+ [m
+[31m-.profile__add-btn{[m
+[31m-  margin: 0 auto;[m
+[31m-  width: 100%;[m
+[32m+[m[32m  .profile__add-btn {[m
+[32m+[m[32m    margin: 0 auto;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m  }[m
+ }[m
+[31m-[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 067a502..20d6e09 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -19,8 +19,8 @@[m
+     <section class="profile page__section">[m
+       <img src="./images/avatar.jpg" alt="Bessie Coleman" class="profile__avatar">[m
+       <div class="profile__column">[m
+[31m-        <h1 class="profile__name">Bessie Coleman Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum deserunt eius, commodi, ducimus nesciunt id nobis eveniet consequuntur assumenda minima labore dolorum velit, inventore totam est? Obcaecati delectus ad ea!</h1>[m
+[31m-        <p class="profile__description">Civil Aviator Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ratione tempore facere vitae iste quas reiciendis hic necessitatibus sunt quisquam dolore et, est, earum voluptas repellendus corrupti. Deserunt, quidem laudantium.</p>[m
+[32m+[m[32m        <h1 class="profile__name">Bessie Coleman</h1>[m
+[32m+[m[32m        <p class="profile__description">Civil Aviator</p>[m
+         <button type="button" class="profile__edit-btn">[m
+           <img class="profile__edit-btn-icon" src="./images/edit_pen.svg" alt="Pen_icon"> Edit Profile[m
+         </button>[m
+[36m@@ -79,6 +79,7 @@[m
+   <footer class="footer">[m
+     <p class="footer__title">2025 &copy; Spots</p>[m
+   </footer>[m
+[32m+[m
+   <div class="modal" id="edit-profile-modal">[m
+     <div class="modal__container">[m
+       <h2 class="modal__title">Edit profile</h2>[m
+[1mdiff --git a/scripts/index.js b/scripts/index.js[m
+[1mindex 62ca42d..e5a1737 100644[m
+[1m--- a/scripts/index.js[m
+[1m+++ b/scripts/index.js[m
+[36m@@ -1,61 +1,97 @@[m
+ const initialCards = [[m
+   {[m
+[31m-    name:"Val Thorens",[m
+[31m-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"[m
+[32m+[m[32m    name: "Val Thorens",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",[m
+   },[m
+ [m
+[31m-  {name:"Restaurant terrace",[m
+[31m-link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"},[m
+[31m-[m
+[31m-[m
+[31m-{name:"An outdoor cafe",[m
+[31m-link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg"},[m
+[31m-[m
+[32m+[m[32m  {[m
+[32m+[m[32m    name: "Restaurant terrace",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",[m
+[32m+[m[32m  },[m
+ [m
+[31m-{name:"A very long bridge, over the forest and through the trees",[m
+[31m-link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"[m
+[31m-},[m
+[32m+[m[32m  {[m
+[32m+[m[32m    name: "An outdoor cafe",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",[m
+[32m+[m[32m  },[m
+ [m
+[31m-{name:"Tunnel with morning light",[m
+[31m-link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"[m
+[31m-},[m
+[32m+[m[32m  {[m
+[32m+[m[32m    name: "A very long bridge, over the forest and through the trees",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",[m
+[32m+[m[32m  },[m
+ [m
+[31m-{name:"Mountain house",[m
+[31m-link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"[m
+[31m-},[m
+[32m+[m[32m  {[m
+[32m+[m[32m    name: "Tunnel with morning light",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",[m
+[32m+[m[32m  },[m
+ [m
+[32m+[m[32m  {[m
+[32m+[m[32m    name: "Mountain house",[m
+[32m+[m[32m    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",[m
+[32m+[m[32m  },[m
+ ];[m
+ [m
+[31m-[m
+ const editProfileBtn = document.querySelector(".profile__edit-btn");[m
+ const editProfileModal = document.querySelector("#edit-profile-modal");[m
+ const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");[m
+[31m-[m
+[32m+[m[32mconst editProfileFormEl = editProfileModal.querySelector(".modal__form");[m
+[32m+[m[32mconst profileNameEl = document.querySelector(".profile__name");[m
+[32m+[m[32mconst profileDescriptionEl = document.querySelector(".profile__description");[m
+[32m+[m[32mconst editProfileNameInput = editProfileModal.querySelector("#profile-name-input");[m
+[32m+[m[32mconst editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");[m
+ [m
+ const newPostBtn = document.querySelector(".profile__add-btn");[m
+ const newPostModal = document.querySelector("#new-post-modal");[m
+ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");[m
+[32m+[m[32mconst newPostAddCard = newPostModal.querySelector (".modal__submit-btn");[m
+[32m+[m[32mconst newPostImageLink = newPostModal.querySelector ("#card-image-input");[m
+[32m+[m[32mconst newPostCaption = newPostModal.querySelector ("#caption-image-input");[m
+ [m
+ [m
+ [m
+ [m
+ editProfileBtn.addEventListener("click", function () {[m
+   editProfileModal.classList.add("modal_is-opened");[m
+[31m-})[m
+[32m+[m[32m  editProfileNameInput.value = profileNameEl.textContent;[m
+[32m+[m[32m  editProfileDescriptionInput.value = profileDescriptionEl.textContent;[m
+[32m+[m[32m});[m
+ [m
+[31m-editProfileCloseBtn.addEventListener("click", function() {[m
+[32m+[m[32meditProfileCloseBtn.addEventListener("click", function () {[m
+   editProfileModal.classList.remove("modal_is-opened");[m
+[31m-})[m
+[32m+[m[32m});[m
+ [m
+ newPostBtn.addEventListener("click", function () {[m
+   newPostModal.classList.add("modal_is-opened");[m
+[31m-})[m
+[32m+[m[32m});[m
+ [m
+ newPostCloseBtn.addEventListener("click", function () {[m
+   newPostModal.classList.remove("modal_is-opened");[m
+[31m-})[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction handleProfileFormSubmit(evt) {[m
+[32m+[m[32m    evt.preventDefault();[m
+[32m+[m[32m  profileNameEl.textContent = editProfileNameInput.value;[m
+[32m+[m[32m  profileDescriptionEl.textContent = editProfileDescriptionInput.value;[m
+[32m+[m[32m  editProfileModal.classList.remove("modal_is-opened");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32meditProfileFormEl.addEventListener("submit", handleProfileFormSubmit);[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction handleNewPostSubmit(evt) {[m
+[32m+[m[32m  evt.preventDefault();[m
+[32m+[m[32m  console.log (newPostImageLink.value);[m
+[32m+[m[32m  console.log (newPostCaption.value);[m
+[32m+[m[32m  newPostModal.classList.remove("modal_is-opened");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnewPostModal.addEventListener("submit", handleNewPostSubmit);[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+ [m
+ initialCards.forEach(function (card) {[m
+[31m-  console.log (card.name);[m
+[31m-  console.log (card.link);[m
+[31m-})[m
+\ No newline at end of file[m
+[32m+[m[32m  console.log(card.name);[m
+[32m+[m[32m  console.log(card.link);[m
+[32m+[m[32m});[m

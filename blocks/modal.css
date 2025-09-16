@@ -1,6 +1,6 @@
 .modal {
   visibility: hidden;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   right: 0;
@@ -12,20 +12,20 @@
   padding: 0 15px;
 }
 
-.modal_is-opened{
+.modal_is-opened {
   visibility: visible;
 }
 
-.modal__container{
+.modal__container {
   max-width: 730px;
   width: 100%;
   border-radius: 8px;
-  background-color: rgb(255,255,255);
+  background-color: rgb(255, 255, 255);
   padding: 32px 50px;
   position: relative;
 }
 
-.modal__close-btn{
+.modal__close-btn {
   top: 28px;
   right: 50px;
   width: 40px;
@@ -38,14 +38,13 @@
   position: absolute;
 }
 
-
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 32px;
 }
 
-.modal__input::placeholder{
+.modal__input::placeholder {
   font-size: 16px;
 }
 
@@ -62,14 +61,12 @@
   opacity: 0.6;
 }
 
-
-.modal__form{
+.modal__form {
   display: flex;
   flex-direction: column;
-
 }
 
-.modal__input{
+.modal__input {
   display: block;
   margin: 8px 0 0;
   width: 100%;
@@ -80,14 +77,14 @@
   border: 1px solid rgba(33, 33, 33, 0.4);
 }
 
-.modal__label{
+.modal__label {
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 16px;
   color: rgba(33, 33, 33, 0.7);
 }
 
-.modal__submit-btn{
+.modal__submit-btn {
   max-width: 156px;
   width: 100%;
   padding: 18px 0;
@@ -99,29 +96,27 @@
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.modal__submit-btn:hover{
+.modal__submit-btn:hover {
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+@media screen and (max-width: 370px) {
+  .modal__submit-btn {
+    font-size: 16px;
+    max-width: none;
+  }
 
-@media screen and (max-width:370px) {
-  .modal__submit-btn{
-  font-size: 16px;
-  max-width: none;
-}
+  .modal__title {
+    font-size: 20px;
+    padding: 10px 0 0;
+  }
 
-.modal__title {
-  font-size: 20px;
-  padding: 10px 0 0;
-}
+  .modal__container {
+    padding: 12px;
+  }
 
-.modal__container{
-  padding: 12px;
-}
-
-.modal__close-btn{
-  top: 12px;
-  right: 12px;
-
-}
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
 }

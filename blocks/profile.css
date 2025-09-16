@@ -1,22 +1,22 @@
-.profile{
+.profile {
   display: flex;
   padding: 34px 0 20px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
   max-width: 1280px;
 }
 
-.profile__add-btn{
+.profile__add-btn {
   margin-left: auto;
 }
 
-.profile__avatar{
+.profile__avatar {
   margin-right: 20px;
   height: 190px;
   width: 190px;
-  border-radius: 8px  ;
+  border-radius: 8px;
 }
 
-.profile__name{
+.profile__name {
   margin: 0 0 12px;
   font-weight: 500;
   font-size: 32px;
@@ -29,7 +29,7 @@
   max-width: 420px;
 }
 
-.profile__description{
+.profile__description {
   margin: 0;
   display: -webkit-box;
   overflow: hidden;
@@ -41,12 +41,12 @@
   color: rgba(33, 33, 33, 0.7);
 }
 
-.profile__column{
+.profile__column {
   display: flex;
   flex-direction: column;
 }
 
-.profile__edit-btn{
+.profile__edit-btn {
   margin-top: auto;
   border: none;
   color: rgba(33, 33, 33, 0.7);
@@ -59,10 +59,10 @@
 }
 
 .profile__edit-btn:hover {
-  color: rgba(0,0,0);
+  color: rgba(0, 0, 0);
 }
 
-.profile__edit-btn-icon{
+.profile__edit-btn-icon {
   opacity: 0.7;
   transition: all 0.3s ease;
 }
@@ -71,10 +71,9 @@
   opacity: 1;
 }
 
-
-.profile__add-btn{
+.profile__add-btn {
   background-color: #212121;
-  color: #FCF5E5;
+  color: #fcf5e5;
   border-radius: 8px;
   min-width: 149px;
   padding: 18px 24px;
@@ -84,18 +83,17 @@
   cursor: pointer;
 }
 
-.profile__add-btn:hover{
+.profile__add-btn:hover {
   background-color: rgba(33, 33, 33, 0.8);
 }
 
-
-.profile__add-btn-icon{
+.profile__add-btn-icon {
   width: 12px;
   height: 12px;
 }
 
-@media screen and (max-width:627px) {
-  .profile{
+@media screen and (max-width: 627px) {
+  .profile {
     flex-direction: column;
     max-width: 288px;
     align-items: center;
@@ -103,28 +101,27 @@
     padding-top: 20px;
   }
 
-  .profile__avatar{
+  .profile__avatar {
     margin: 0 0 12px;
     width: 80px;
     height: 80px;
   }
 
-  .profile__name{
+  .profile__name {
     font-size: 20px;
     margin: 0 0 6px;
   }
 
-  .profile__description{
-  margin: 0 0 32px;
+  .profile__description {
+    margin: 0 0 32px;
   }
 
-  .profile__edit-btn{
+  .profile__edit-btn {
     margin: 0 auto 20px;
   }
 
-.profile__add-btn{
-  margin: 0 auto;
-  width: 100%;
-}
-
+  .profile__add-btn {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
