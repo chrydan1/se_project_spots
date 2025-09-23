@@ -46,25 +46,34 @@ const newPostAddCard = newPostModal.querySelector (".modal__submit-btn");
 const newPostImageLink = newPostModal.querySelector ("#card-image-input");
 const newPostCaption = newPostModal.querySelector ("#caption-image-input");
 
+function closeModal(modal) {
+modal.classList.remove("modal_is-opened");
+}
 
-
+function openModal(modal) {
+modal.classList.add("modal_is-opened");
+}
 
 editProfileBtn.addEventListener("click", function () {
-  editProfileModal.classList.add("modal_is-opened");
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  // editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal)
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
+  // editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal)
 });
 
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  // newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal)
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+  // newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal)
 });
 
 
@@ -72,7 +81,8 @@ function handleProfileFormSubmit(evt) {
     evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  // editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal)
 }
 
 editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
@@ -82,7 +92,9 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
   console.log (newPostImageLink.value);
   console.log (newPostCaption.value);
-  newPostModal.classList.remove("modal_is-opened");
+  // newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal)
+
 }
 
 newPostModal.addEventListener("submit", handleNewPostSubmit);
