@@ -1,5 +1,10 @@
 const initialCards = [
   {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -50,6 +55,11 @@ const newPostAddCard = newPostModal.querySelector(".modal__submit-btn");
 const newPostImageLink = newPostModal.querySelector("#card-image-input");
 const newPostCaption = newPostModal.querySelector("#caption-image-input");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseBtn = previewModal.querySelector(".preview-modal__close-btn");
+const previewImageEl = previewModal.querySelector(".modal__image");
+const previewImageName = previewModal.querySelector(".modal__caption");
+
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -66,12 +76,28 @@ function getCardElement(data) {
   cardTitleEl.textContent = data.name;
 
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
-    cardLikeBtnEl.addEventListener("click", () => {
+  cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
   });
 
-  return cardElement;
+  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
+  cardDeleteBtnEl.addEventListener("click", () => {
+    cardElement.remove();
+    cardElement = null;
+  });
 
+  cardImageEl.addEventListener("click", () => {
+    previewImageEl.src = data.link;
+    previewImageEl.alt = data.name;
+    previewImageName.textContent = data.name;
+    openModal(previewModal);
+  });
+
+  previewModalCloseBtn.addEventListener ("click", () => {
+    closeModal(previewModal);
+  });
+
+  return cardElement;
 }
 
 function closeModal(modal) {
@@ -111,7 +137,7 @@ editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-    const inputValues = {
+  const inputValues = {
     name: newPostCaption.value,
     link: newPostImageLink.value,
   };

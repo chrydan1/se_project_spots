@@ -31,14 +31,14 @@
     </section>
     <section class="cards">
       <ul class="cards__list">
-
         <template id="card-template">
           <li class="card">
-          <img src="#" alt="" class="card__image">
-          <div class="card__content">
-            <h2 class="card__title"></h2>
-            <button type="button" class="card__like-btn"></button>
-          </div>
+            <img src="#" alt="" class="card__image">
+            <div class="card__content">
+              <h2 class="card__title"></h2>
+              <button type="button" class="card__like-btn"></button>
+            </div>
+            <button class="card__delete-btn" type="button"></button>
         </li>
         </template>
 
@@ -92,6 +92,18 @@
       </form>
     </div>
   </div>
+
+    <div class="modal" id="preview-modal">
+      <div class="modal__image-container">
+
+      <button class="preview-modal__close-btn">
+        <img src="./images/delete_white_x.svg" alt="" class="preview-modal__close-btn-icon">
+      </button>
+
+      <img src="#" alt="Golden Gate Bridge" class="modal__image">
+      <p class="modal__caption"></p>
+      </div>
+
   <script src="./scripts/index.js"></script>
 </div>
 </body>
