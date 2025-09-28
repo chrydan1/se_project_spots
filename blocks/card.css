@@ -9,6 +9,7 @@
   display: block;
   border-radius: 8px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .card__delete-btn{
@@ -36,7 +37,7 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
+  opacity: 0.4;
   cursor: pointer;
   transition: all 0.4s ease;
   background-repeat: no-repeat;
@@ -45,7 +46,7 @@
 
 
 .card__like-btn:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .card__like-btn_active {

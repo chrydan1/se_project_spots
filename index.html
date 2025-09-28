@@ -61,11 +61,11 @@
       <form class="modal__form">
         <label for="profile-name-input" class="modal__label">
           Name
-          <input id="profile-name-input" type="text" class="modal__input" placeholder="Type your name">
+          <input id="profile-name-input" type="text" class="modal__input" placeholder="Type your name" required>
         </label>
         <label for="profile-description-input" class="modal__label">
           Description
-          <input id="profile-description-input" type="text" class="modal__input" placeholder="Describe yourself">
+          <input id="profile-description-input" type="text" class="modal__input" placeholder="Describe yourself" required>
         </label>
         <button type="submit" class="modal__submit-btn"> Save </button>
       </form>
@@ -83,21 +83,21 @@
       <form class="modal__form">
         <label for="card-image-input" class="modal__label">
           Image link
-          <input id="card-image-input" type="url" class="modal__input" placeholder="Paste a link to the picture">
+          <input id="card-image-input" type="url" class="modal__input" placeholder="Paste a link to the picture" required>
         </label>
         <label for="caption-image-input" class="modal__label">
           Caption
-          <input id="caption-image-input" type="text" class="modal__input" placeholder="Type your caption">
+          <input id="caption-image-input" type="text" class="modal__input" placeholder="Type your caption" required>
         </label>
         <button type="submit" class="modal__submit-btn"> Save </button>
       </form>
     </div>
   </div>
 
-    <div class="modal" id="preview-modal">
+    <div class="modal preview-modal" id="preview-modal">
       <div class="modal__image-container">
 
-      <button class="preview-modal__close-btn">
+      <button type="button" class="preview-modal__close-btn" aria-label="Close preview modal">
         <img src="./images/delete_white_x.svg" alt="" class="preview-modal__close-btn-icon">
       </button>
 
