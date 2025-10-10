@@ -81,12 +81,17 @@
   border: 1px solid rgba(33, 33, 33, 0.4);
 }
 
+.modal__input_type_error{
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__label {
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 16px;
   color: rgba(33, 33, 33, 0.7);
 }
+
 
 .modal__submit-btn {
   max-width: 156px;
@@ -98,6 +103,13 @@
   color: rgba(252, 245, 229, 1);
   cursor: pointer;
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+
+.modal__submit-btn_disable{
+  color: #FCF5E5;
+  background-color: rgba(33, 33, 33, 0.8);
+  cursor: default;
 }
 
 .modal__image-container{
@@ -150,8 +162,11 @@
 }
 
 
-.modal__submit-btn:hover {
-  background-color: rgba(33, 33, 33, 0.8);
+.modal__error{
+  color: #FF0000B2;
+  font-size: 16px;
+  display: block;
+  margin-top: 8px;
 }
 
 @media screen and (max-width: 865px) {
