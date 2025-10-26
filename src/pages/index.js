@@ -1,4 +1,23 @@
-import { enableValidation, settings, resetValidation, toggleButtonState } from "./validation.js";
+import logoImg from "../images/logo.svg";
+import avatarImg from "../images/avatar.jpg";
+import editPenImg from "../images/edit_pen.svg";
+import addImg from "../images/add.svg";
+import closeXImg from "../images/close_x.svg";
+import deleteWhiteXImg from "../images/delete_white_x.svg";
+
+document.querySelector(".header__logo").src = logoImg;
+document.querySelector(".profile__avatar").src = avatarImg;
+document.querySelector(".profile__edit-btn-icon").src = editPenImg;
+document.querySelector(".profile__add-btn-icon").src = addImg;
+document.querySelectorAll(".modal__close-btn-icon").forEach((icon) => {
+  icon.src = closeXImg;
+});
+document.querySelector(".preview-modal__close-btn-icon").src = deleteWhiteXImg;
+
+
+import "./index.css";
+
+import { enableValidation, settings, resetValidation, toggleButtonState } from "../scripts/validation.js";
 
 const initialCards = [
   {

@@ -1,8 +1,7 @@
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 
-module.exports = {
-  // Connect plugins to PostCSS
+export default {
   plugins: [
     autoprefixer,
     cssnano({ preset: "default" }), // set default minification settings
