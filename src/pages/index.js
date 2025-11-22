@@ -20,6 +20,7 @@ document.querySelectorAll(".modal__close-btn-icon").forEach((icon) => {
   icon.src = closeXImg;
 });
 document.querySelector(".preview-modal__close-btn-icon").src = deleteWhiteXImg;
+document.querySelector(".popupModal__close-btn-icon").src = deleteWhiteXImg;
 
 /******************************************************
  *  3. IMPORTAR VALIDACIÓN Y API
@@ -78,8 +79,12 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileFormEl = editProfileModal.querySelector(".modal__form");
-const editProfileNameInput = editProfileModal.querySelector("#profile-name-input");
-const editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
+const editProfileNameInput = editProfileModal.querySelector(
+  "#profile-name-input"
+);
+const editProfileDescriptionInput = editProfileModal.querySelector(
+  "#profile-description-input"
+);
 
 // ---- Modal Nueva Tarjeta ----
 const newPostBtn = document.querySelector(".profile__add-btn");
@@ -90,21 +95,38 @@ const newPostImageLink = newPostModal.querySelector("#card-image-input");
 const newPostCaption = newPostModal.querySelector("#caption-image-input");
 const newPostFormEl = newPostModal.querySelector(".modal__form");
 
-// ---- Modal Editar Avatar ----
+// ---- Modal Edite Avatar ----
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
+
+//Delete Popup Card Modal
+
+const popupDeleteCardModal = document.querySelector("#popup-delete-card-modal");
+const popupDeleteCardForm = popupDeleteCardModal.querySelector(".modal__form");
+
+const deleteCardCancelBtn = popupDeleteCardModal.querySelector(".modal__submit-btn_cancel");
+const deleteCardXBtn = popupDeleteCardModal.querySelector(".modal__close-btn_delete");
+
 // ---- Modal Previsualización ----
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseBtn = previewModal.querySelector(".preview-modal__close-btn");
+const previewModalCloseBtn = previewModal.querySelector(
+  ".preview-modal__close-btn"
+);
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewImageName = previewModal.querySelector(".modal__caption");
 
 // ---- Cards ----
-const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
+
+//--Delete Cards confirmation
+
+let selectedCard, selectedCardId;
 
 /******************************************************
  *  7. FUNCIONES DE MODALES (abrir/cerrar)
@@ -134,8 +156,20 @@ function handleOverlayClick(evt) {
   }
 }
 
+
+function popupCloseModal(modal, ...buttons) {
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => closeModal(modal));
+  });
+}
+
+// Aplicar a tu modal de eliminar tarjeta
+popupCloseModal(popupDeleteCardModal, deleteCardCancelBtn, deleteCardXBtn);
+
+
+
 /******************************************************
- *  8. GENERAR TARJETAS
+ *  8. GENERATES CARDS
  ******************************************************/
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -155,7 +189,7 @@ function getCardElement(data) {
   // Delete
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
   cardDeleteBtnEl.addEventListener("click", () =>
-    handleDeleteCard(cardElement, data)
+    handleDeleteCard(cardElement, data._id)
   );
 
   // Preview
@@ -173,7 +207,7 @@ function getCardElement(data) {
  *  9. HANDLERS DE FORMULARIOS
  ******************************************************/
 
-// ---- Editar Perfil ----
+// ---- Edit profile ----
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -190,7 +224,7 @@ function handleProfileFormSubmit(evt) {
     .catch(console.error);
 }
 
-// ---- Crear Nueva Tarjeta ----
+// ---- Create new card ----
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
 
@@ -257,22 +291,37 @@ avatarModalBtn.addEventListener("click", () => openModal(avatarModal));
 avatarCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 
 // Preview modal
-previewModalCloseBtn.addEventListener("click", () =>
-  closeModal(previewModal)
-);
+previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
+
+// Delete Avatar Form
+
+function handleDeleteSubmit(evt) {
+  evt.preventDefault();
+  api
+    .deleteCard(selectedCardId)
+    .then(() => {
+      selectedCard.remove();
+      closeModal(popupDeleteCardModal);
+    })
+    .catch(console.error);
+}
+
+popupDeleteCardForm.addEventListener("submit", handleDeleteSubmit);
 
 /******************************************************
  *  11. ELIMINAR TARJETA
  ******************************************************/
-function handleDeleteCard(cardElement, data) {
-  api
-    .deleteCard(data._id)
-    .then(() => cardElement.remove())
-    .catch(console.error);
+function handleDeleteCard(cardElement, cardId) {
+  selectedCard = cardElement;
+  selectedCardId = cardId;
+  // api
+  //   .deleteCard(data._id)
+  //   .then(() => cardElement.remove())
+  //   .catch(console.error);
+  openModal(popupDeleteCardModal);
 }
 
 /******************************************************
  *  12. ACTIVAR VALIDACIÓN
  ******************************************************/
 enableValidation(settings);
-
