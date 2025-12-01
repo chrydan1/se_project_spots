@@ -151,25 +151,25 @@
       </div>
 
       <div class="modal" id="avatar-modal">
-        <div class="modal__container">
-          <h2 class="modal__title">Edit Avatar</h2>
+        <div class="modal__container modal__container--editAvatar">
+          <h2 class="modal__title modal__title--avatar">Edit profile Avatar</h2>
           <button type="button" class="modal__close-btn">
             <img class="modal__close-btn-icon" alt="X icon to close model" />
           </button>
           <form class="modal__form" id="edit-avatar-form" novalidate>
-            <label for="profile-description-input" class="modal__label">
-              Avatar
+            <label for="profile-description-input" class="modal__label modal__label--editAvatar">
+              Profile Picture
               <input
                 id="profile-avatar-input"
                 type="text"
-                class="modal__input"
+                class="modal__input modal__input--avatar"
                 placeholder="Avatar goes here"
                 required
                 name="avatar"
               />
               <span id="profile-avatar-input-error" class="modal__error"></span>
             </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
+            <button type="submit" class="modal__submit-btn modal__submit-btn--avatar">Save</button>
           </form>
         </div>
       </div>

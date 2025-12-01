@@ -1,5 +1,5 @@
 /******************************************************
- *  1. IMPORTACIONES DE ESTILOS E IMÁGENES
+ *  1. IMPORT STYLES AND PICTURES
  ******************************************************/
 import "./index.css";
 
@@ -8,10 +8,11 @@ import editPenImg from "../images/edit_pen.svg";
 import addImg from "../images/add.svg";
 import closeXImg from "../images/close_x.svg";
 import deleteWhiteXImg from "../images/delete_white_x.svg";
+import {setButtonText} from "../utils/helpers.js";
 
 /******************************************************
- *  2. INSERTAR IMÁGENES EN EL DOM
- *  - Asigna las imágenes importadas a los elementos HTML
+ *  2. INSERT DOM IMAGES
+ *  - Asign imported pictures to HTML´s Elements
  ******************************************************/
 document.querySelector(".header__logo").src = logoImg;
 document.querySelector(".profile__edit-btn-icon").src = editPenImg;
@@ -23,7 +24,7 @@ document.querySelector(".preview-modal__close-btn-icon").src = deleteWhiteXImg;
 document.querySelector(".popupModal__close-btn-icon").src = deleteWhiteXImg;
 
 /******************************************************
- *  3. IMPORTAR VALIDACIÓN Y API
+ *  3. IMPORT API and Validation
  ******************************************************/
 import {
   enableValidation,
@@ -35,7 +36,7 @@ import {
 import Api from "../utils/Api.js";
 
 /******************************************************
- *  4. CONFIGURAR API
+ *  4. API Settings
  ******************************************************/
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1/",
@@ -46,18 +47,17 @@ const api = new Api({
 });
 
 /******************************************************
- *  5. OBTENER DATA INICIAL (usuario + cards)
+ *  5. Get Initial Data (user + cards)
  ******************************************************/
 api
   .getAppInfo()
   .then(([userData, cards]) => {
-    // Insertar tarjetas
-    cards.forEach((item) => {
+      cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
     });
 
-    // Insertar información del usuario
+    // Insert user info
     document.querySelector(".profile__avatar").src = userData.avatar;
     document.querySelector(".profile__name").textContent = userData.name;
     document.querySelector(".profile__description").textContent =
@@ -66,16 +66,16 @@ api
   .catch(console.error);
 
 /******************************************************
- *  6. SELECCIÓN DE ELEMENTOS DEL DOM
+ *  6. Select DOM Elements
  ******************************************************/
 
-// ---- Perfil ----
+// ---- Profile ----
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
-// ---- Modal Editar Perfil ----
+// ---- Modal Edit Profile ----
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileFormEl = editProfileModal.querySelector(".modal__form");
@@ -86,7 +86,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input"
 );
 
-// ---- Modal Nueva Tarjeta ----
+// ---- Modal New Card ----
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
@@ -110,7 +110,7 @@ const popupDeleteCardForm = popupDeleteCardModal.querySelector(".modal__form");
 const deleteCardCancelBtn = popupDeleteCardModal.querySelector(".modal__submit-btn_cancel");
 const deleteCardXBtn = popupDeleteCardModal.querySelector(".modal__close-btn_delete");
 
-// ---- Modal Previsualización ----
+// ---- Preview  Modal ----
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(
   ".preview-modal__close-btn"
@@ -129,7 +129,7 @@ const cardsList = document.querySelector(".cards__list");
 let selectedCard, selectedCardId;
 
 /******************************************************
- *  7. FUNCIONES DE MODALES (abrir/cerrar)
+ *  7. Modal functions (open/close)
  ******************************************************/
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
@@ -163,7 +163,7 @@ function popupCloseModal(modal, ...buttons) {
   });
 }
 
-// Aplicar a tu modal de eliminar tarjeta
+
 popupCloseModal(popupDeleteCardModal, deleteCardCancelBtn, deleteCardXBtn);
 
 
@@ -181,10 +181,31 @@ function getCardElement(data) {
   cardTitleEl.textContent = data.name;
 
   // Like
-  const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
-  cardLikeBtnEl.addEventListener("click", () => {
-    cardLikeBtnEl.classList.toggle("card__like-btn_active");
-  });
+
+const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+
+
+if (data.isLiked) {
+  cardLikeBtnEl.classList.add("card__like-btn_active");
+}
+
+// 2. Handler like events/unlike con API
+cardLikeBtnEl.addEventListener("click", () => {
+  const currentlyLiked = cardLikeBtnEl.classList.contains("card__like-btn_active");
+
+  api
+    .handleLikeCards(data._id, currentlyLiked)
+    .then((updatedCard) => {
+      // heart shifting like-unlike
+      if (updatedCard.isLiked) {
+        cardLikeBtnEl.classList.add("card__like-btn_active");
+      } else {
+        cardLikeBtnEl.classList.remove("card__like-btn_active");
+      }
+    })
+    .catch(console.error);
+});
+
 
   // Delete
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
@@ -211,6 +232,9 @@ function getCardElement(data) {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
+  const submitBtn = evt.submitter;
+    setButtonText(submitBtn, true, "Save", "Saving...")
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -221,12 +245,18 @@ function handleProfileFormSubmit(evt) {
       profileDescriptionEl.textContent = data.about;
       closeModal(editProfileModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally (() => {
+    setButtonText(submitBtn, true, "Save", "Saving...");
+    });
 }
 
 // ---- Create new card ----
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
+
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true, "Create", "Creating...");
 
   const inputValues = {
     name: newPostCaption.value,
@@ -248,12 +278,19 @@ function handleNewPostSubmit(evt) {
 
       closeModal(newPostModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false, "Create", "Creating...");
+    });
 }
 
 // ---- Editar Avatar ----
+
 avatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true, "Save", "Saving...");
 
   api
     .editAvatar(avatarInput.value)
@@ -262,7 +299,10 @@ avatarForm.addEventListener("submit", (evt) => {
       avatarForm.reset();
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false, "Save", "Saving...");
+    });
 });
 
 /******************************************************
@@ -297,31 +337,34 @@ previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true, "Yes", "Deleting...");
+
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(popupDeleteCardModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitBtn, false, "Yes", "Deleting...");
+    });
 }
 
 popupDeleteCardForm.addEventListener("submit", handleDeleteSubmit);
 
 /******************************************************
- *  11. ELIMINAR TARJETA
+ *  11. DELETE CARD
  ******************************************************/
 function handleDeleteCard(cardElement, cardId) {
   selectedCard = cardElement;
   selectedCardId = cardId;
-  // api
-  //   .deleteCard(data._id)
-  //   .then(() => cardElement.remove())
-  //   .catch(console.error);
   openModal(popupDeleteCardModal);
 }
 
 /******************************************************
- *  12. ACTIVAR VALIDACIÓN
+ *  12. ACTIVATE VALIDATION
  ******************************************************/
 enableValidation(settings);
