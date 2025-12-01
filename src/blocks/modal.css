@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 10px;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -20,6 +20,7 @@
   opacity: 1;
 }
 
+
 .modal__container {
   max-width: 730px;
   width: 100%;
@@ -27,6 +28,7 @@
   background-color: rgb(255, 255, 255);
   padding: 32px 50px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .modal__close-btn {
@@ -42,10 +44,28 @@
   position: absolute;
 }
 
+  .modal__container--popup{
+    max-width: 630px;
+  }
+
+
+  .popupModal__close-btn-icon{
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+
+  .popupModal__close-btn-icon:hover {
+    opacity: 0.4;
+  }
+
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 32px;
+}
+
+.modal__title_delete{
+  font-size: 24px;
 }
 
 .modal__input::placeholder {
@@ -68,6 +88,12 @@
 .modal__form {
   display: flex;
   flex-direction: column;
+}
+
+.modal__form_column{
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
 }
 
 .modal__input {
@@ -169,6 +195,41 @@
   margin-top: 8px;
 }
 
+.modal__submit-btn_delete{
+  color: #212121;
+  background-color: #FF6565;
+}
+
+
+.modal__submit-btn_delete:hover{
+  color: black;
+  background-color: #FF3333;
+}
+
+.modal__submit-btn_cancel{
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  color: black;
+}
+
+
+.modal__submit-btn_cancel:hover{
+  background-color: #212121;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  color: white;
+}
+
+.modal__close-btn_delete {
+  position: absolute;
+  top: 0;
+  right: -50px;
+}
+
+
 @media screen and (max-width: 865px) {
   .preview-modal__close-btn {
     top:-48px;
@@ -177,6 +238,11 @@
   }
 
 @media screen and (max-width: 370px) {
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
   .modal__submit-btn {
     font-size: 16px;
     max-width: none;
@@ -187,9 +253,67 @@
     padding: 10px 0 0;
   }
 
-
   .modal__close-btn {
     top: 12px;
     right: 12px;
   }
+
+.popupModal__close-btn-icon{
+    position: absolute;
+    top:-68px;
+    right: 0;
+  }
+
+  .modal__form_column{
+  text-align: justify;
+  justify-content: center;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.modal__container--popup{
+    width: 300px;
+    height: 208px;
+    padding:12px;
+    justify-items: center;
+    text-align: center;
+  }
+
+.modal__submit-btn_delete{
+  width: 156px;
+  height: 52px;
+}
+
+.modal__submit-btn_cancel{
+  width: 156px;
+  height: 52px;
+}
+
+.modal__title_delete{
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+}
+
+.modal__container--editAvatar{
+  padding: 12px 12px;
+  height: 222px;
+  width: 300px;
+}
+
+.modal__label--editAvatar{
+  margin: 0 0 12px;
+}
+
+.modal__title--avatar{
+  margin: 0 0 12px;
+}
+
+.modal__submit-btn--avatar{
+  height: 52px;
+}
+
+.modal__input--avatar{
+  height: 48px;
+}
+
 }
